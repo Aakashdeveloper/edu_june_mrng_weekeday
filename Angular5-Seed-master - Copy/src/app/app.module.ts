@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard.component'
+import { ProductComponent } from "./products/products.component";
 
 @NgModule({
 
@@ -13,7 +14,8 @@ import { DashboardComponent } from './dashboard.component'
     //All Component & Pipe
     declarations:[
         AppComponent,
-        DashboardComponent
+        DashboardComponent,
+        ProductComponent
     ],
     //Only First Component
     bootstrap:[
