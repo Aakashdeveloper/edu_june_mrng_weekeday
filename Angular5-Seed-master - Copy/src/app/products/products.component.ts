@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector:'prod-comp',
+    selector:'prod-Comp',
     templateUrl:'./products.component.html'
 })
 
@@ -9,6 +9,7 @@ export class ProductComponent{
     title:string="@@@@@@Product List@@@@@";
     showtable:boolean=true;
     showImage:boolean=false;
+    filterData:string;
     products:any[]=[
         {
             _id: "5a05dacc734d1d68d42d31f3",

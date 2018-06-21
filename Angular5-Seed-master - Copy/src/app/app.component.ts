@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     selector:'app-comp',
     template:`<div>
                 <h1>this is main component of angular</h1>
-                <prod-comp></prod-comp>
+                <prod-Comp></prod-Comp>
                 <dash-comp></dash-comp>
              </div>`
 })
