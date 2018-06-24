@@ -8,7 +8,9 @@ import {IProduct } from './product.model'
 
 export class ProductFilterPipe implements PipeTransform{
     transform(value:IProduct[],filterBy:string){
-        return value
+        filterBy = filterBy ? filterBy.toLowerCase():null
+        return filterBy ? value.filter((product:IProduct)=>
+        product.productName.toLowerCase().indexOf(filterBy) !== -1):value
     }
 }
 

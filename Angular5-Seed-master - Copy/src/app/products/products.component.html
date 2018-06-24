@@ -32,15 +32,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products">
+                    <tr *ngFor="let product of products | productFilter:filterData">
                         <td>
-                            <img [src]="product.imageUrl"  *ngIf="showImage"/>
+                            <img [src]="product.imageUrl"  *ngIf="showImage"
+                            [style.width.px]="imageWidth"/>
                         </td>
                         <td>{{product.productName|myUpper:"upper"}}</td>
                         <td>{{product.productCode|myUpper:"lower"}}</td>
                         <td>{{product.releaseDate}}</td>
-                        <td>{{product.price| addVal |currency:"INR"}}</td>
-                        <td>{{product.starRating}}</td>
+                        <td [ngStyle]="{'color':product.price<30?'red':'blue'}">{{product.price| addVal |currency:"INR"}}</td>
+                        <td><star-comp [rating]="product.starRating"></star-comp></td>
                     </tr>
                 </tbody>
             </table>
