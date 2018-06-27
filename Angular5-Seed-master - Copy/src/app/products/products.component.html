@@ -37,7 +37,9 @@
                             <img [src]="product.imageUrl"  *ngIf="showImage"
                             [style.width.px]="imageWidth"/>
                         </td>
-                        <td>{{product.productName|myUpper:"upper"}}</td>
+                        <td>
+                            <a [routerLink]="['/product',product.productId]">{{product.productName|myUpper:"upper"}}</a>
+                        </td>
                         <td>{{product.productCode|myUpper:"lower"}}</td>
                         <td>{{product.releaseDate}}</td>
                         <td [ngStyle]="{'color':product.price<30?'red':'blue'}">{{product.price| addVal |currency:"INR"}}</td>

@@ -1,31 +1,40 @@
-import { NgModule }  from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; 
-import { HttpModule } from '@angular/http'
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard.component'
-import { ProductComponent } from "./products/products.component";
-import { upperValuePipe } from "./products/upperValue.pipe";
-import { addValuePipe } from "./products/addValue.pipe";
-import { ProductFilterPipe } from "./products/filterProduct.pipe";
-import { StarComponent } from "./shared/star.component";
-import { ProductSevice } from "./products/product.service";
-import { NotFound } from "./shared/notFound.component";
-import { ProductDetail } from "./products/product_detail.component";
-import { HomeComponent } from "./home/home.component";
-import { OrderComponent } from "./order/order.component";
+import { DashboardComponent } from './dashboard.component';
+import { ProductComponent } from './products/products.component';
+import { upperValuePipe } from './products/upperValue.pipe';
+import { addValuePipe } from './products/addValue.pipe';
+import { ProductFilterPipe } from './products/filterProduct.pipe';
+import { StarComponent } from './shared/star.component';
+import { ProductSevice } from './products/product.service';
+import { NotFound } from './shared/notFound.component';
+import { ProductDetailComponent } from './products/product_detail.component';
+import { HomeComponent } from './home/home.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
-
-    //All Module decl here
-    imports:[
+// All Module decl here
+    imports: [
         BrowserModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        RouterModule.forRoot([
+            {path: 'product', component: ProductComponent},
+            {path: 'product/:id' , component: ProductDetailComponent},
+            {path: 'order', component: OrderComponent},
+            {path: 'home', component: HomeComponent},
+            {path: '', redirectTo: 'home', pathMatch: 'full'},
+            {path: '**', component: NotFound}
+
+        ])
     ],
-    //All Component & Pipe
-    declarations:[
+    // All Component & Pipe
+    declarations: [
         AppComponent,
         DashboardComponent,
         ProductComponent,
@@ -34,20 +43,20 @@ import { OrderComponent } from "./order/order.component";
         ProductFilterPipe,
         StarComponent,
         NotFound,
-        ProductDetail,
+        ProductDetailComponent,
         HomeComponent,
         OrderComponent
     ],
-    //Only First Component
-    bootstrap:[
+    // Only First Component
+    bootstrap: [
         AppComponent
     ],
-    //All Services decl here
-    providers:[
+    // All Services decl here
+    providers: [
         ProductSevice
     ]
 })
 
-export class AppModule{
+export class AppModule {
 
 }
