@@ -6,10 +6,10 @@ import { ActivatedRoute} from '@angular/router';
 })
 
 export class ProductDetailComponent implements OnInit {
-    title: String = 'Detail Page'
+    title: String = 'Detail Page';
     id: Number;
 
-    constructor(private _route: ActivatedRoute){}
+    constructor(private _route: ActivatedRoute) {}
 
     ngOnInit(): void {
         this.id = +this._route.snapshot.params['id'];

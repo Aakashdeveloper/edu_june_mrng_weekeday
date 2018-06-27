@@ -1,35 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductSevice } from './product.service';
-import { IProduct } from './product.model'
+import { IProduct } from './product.model';
 
 @Component({
-    selector:'prod-Comp',
-    templateUrl:'./products.component.html',
-    //styles:['thead{color:green}','h3{color:yellow}']
-    styleUrls:["./products.component.css"]
+    // tslint:disable-next-line:component-selector
+    selector: 'prod-Comp',
+    templateUrl: './products.component.html',
+    // styles:['thead{color:green}','h3{color:yellow}']
+    styleUrls: ['./products.component.css']
 })
 
-export class ProductComponent implements OnInit{
-    title:string="@@@@@@Product List@@@@@";
-    showtable:boolean=true;
-    showImage:boolean=false;
-    filterData:string;
-    imageWidth:number=50;
-    errorMessage:string;
-    products:IProduct[];
+export class ProductComponent implements OnInit {
+    title: String= '@@@@@@Product List@@@@@';
+    showtable: Boolean= true;
+    showImage: Boolean= false;
+    filterData: String;
+    imageWidth: Number= 50;
+    errorMessage: String;
+    products: IProduct[];
 
-    constructor(private _productService:ProductSevice){
+    constructor(private _productService: ProductSevice) {
 
     }
 
-    toggleImage():void{
-        this.showImage = !this.showImage
+    toggleImage(): void {
+        this.showImage = !this.showImage;
     }
 
-    ngOnInit():void{
+    ngOnInit(): void {
         this._productService.getProducts()
-            .subscribe((data)=>this.products=data,
-            (err) => this.errorMessage = err)
+            .subscribe((data) => this.products = data,
+            (err) => this.errorMessage = err);
     }
 }
 
