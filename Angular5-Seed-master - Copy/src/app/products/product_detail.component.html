@@ -3,6 +3,9 @@
             {{title}}
         </div>
         <div class="panel-body">
-            <h2>Product Id:{{id}}</h2>
+            <h2>{{name}}</h2>
+            <img [src]="img" />
+            <h2>{{desc}}</h2>
+            <button (click)="onList()" class="btn btn-danger"><<<Back</button>
         </div>
     </div>
