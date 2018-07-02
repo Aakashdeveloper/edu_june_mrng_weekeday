@@ -1,0 +1,53 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Template Form
+  </div>
+  <div class="panel-body" >
+    <form #form="ngForm" novalidate>
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label for="first">FirstName</label>
+          <input class="form-control" type="text" placeholder="firstName"
+          id="first" name="fname" [ngModel]="model.fname" #firstName="ngModel"
+          (ngModelChange)="firstToUpper($event)" required>
+        </div>
+        <div class="alert alert-danger" *ngIf="firstName.invalid">
+          FirstName is required
+        </div>
+      </div>
+      <h3>Classes</h3>
+      <h3>{{firstName.invalid}}</h3>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="last">LastName</label>
+          <input class="form-control" type="text" placeholder="lasttName"
+          id="last"  name="lname" [(ngModel)]="model.lname">
+        </div>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="fulltime" [(ngModel)]="model.fulltime">FullTime
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="gender" value="male" [(ngModel)]="model.gender">Male
+        </label>
+      </div>
+      <div class="radio">
+          <label>
+            <input type="radio" name="gender" value="female" [(ngModel)]="model.gender">Female
+          </label>
+      </div>
+      <div class="form-group">
+        <select class="form-control" name="codelang" [(ngModel)]="model.codelang">
+          <option *ngFor="let lang of languages">
+            {{lang}}
+          </option>
+         
+        </select>
+      </div>
+      <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
